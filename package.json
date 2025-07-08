@@ -1,0 +1,20 @@
+{
+  "name": "openai_key_chat",
+  "version": "1.0.0",
+  "description": "This is openai api key chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagicSoftDev0717/openai_key_chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MagicSoftDev0717/openai_key_chat/issues"
+  },
+  "homepage": "https://github.com/MagicSoftDev0717/openai_key_chat#readme"
+}
