@@ -2,8 +2,7 @@ const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
    const headers = {
-   // "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
-   "Access-Control-Allow-Origin": "*", // your production domain
+    "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
