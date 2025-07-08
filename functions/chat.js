@@ -30,8 +30,8 @@ exports.handler = async (event) => {
         model: "gpt-4.1",
         messages: [
           { role: "system", content: "You are a helpful assistant for a website that supports 508(c)(1)(A) trusts and online churches." },
-          { role: "user", content: `Context: ${context}\n` }
-          //{ role: "user", content: `Context: ${context}\n\nUser question: ${message}` }
+          //{ role: "user", content: `Context: ${context}\n` }
+          { role: "user", content: `Context: ${context}\n\nUser question: ${message}` }
           //{ content: context } 
         ],
         temperature: 0.7,
