@@ -2,7 +2,8 @@ const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
    const headers = {
-    "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
+   // "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
+   "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
@@ -30,10 +31,11 @@ exports.handler = async (event) => {
         model: "gpt-4.1",
         messages: [
           { role: "system", content: "You are a helpful assistant for a website that supports 508(c)(1)(A) trusts and online churches." },
-          { role: "user", content: `Context: ${context}\n\nUser question: ${message}` }
+          //{ role: "user", content: `Context: ${context}\n\nUser question: ${message}` }
+          { content: context } 
         ],
         temperature: 0.7,
-        max_tokens: 500
+        max_tokens: 1000
       }),
     });
 
