@@ -20,6 +20,17 @@ exports.handler = async (event) => {
     const { message, context } = JSON.parse(event.body);
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+    if (!OPENAI_API_KEY) {
+      console.error("❌ OPENAI_API_KEY is not set!");
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          error: "OPENAI_API_KEY is missing from environment variables"
+        })
+      };
+    }
+
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
