@@ -1,6 +1,21 @@
 const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
+   const headers = {
+    "Access-Control-Allow-Origin": "https://www.unitedsupport508.com", // your production domain
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS"
+  };
+
+  // 🔁 Handle preflight OPTIONS request
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers,
+      body: "OK",
+    };
+  }
+
   try {
     const { message, context } = JSON.parse(event.body);
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -26,12 +41,14 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify(data),
     };
 
   } catch (err) {
     return {
       statusCode: 500,
+      headers,
       body: JSON.stringify({ error: "Failed to fetch OpenAI response", detail: err.message }),
     };
   }
